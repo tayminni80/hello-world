@@ -3,7 +3,27 @@
 version: 2.1
 version: 2.1
 executors:
-  my-custom-executor:
+  my-cujobs:
+  example-job:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
+    steps:
+      - python/dist
+workflows:
+  example-workflow:
+    jobs:
+      - example-jobjobs:
+  example-job:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
+    steps:
+      - python/dist
+workflows:
+  example-workflow:
+    jobs:
+      - example-job
     docker:
       - image: cimg/base:stable
         auth:
@@ -28,7 +48,17 @@ workflows:
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # Specjobs:
+  example-job:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
+    steps:
+      - python/dist
+workflows:
+  example-workflow:
+    jobs:
+      - example-jobify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
       - image: cimg/base:stable
