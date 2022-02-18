@@ -6,7 +6,29 @@ executors:
   my-cujobs:
   example-job:
     docker:
-      # replace with your preferred image
+      # reversion: 2.1
+executors:
+  my-custom-executor:
+    docker:
+      - image: cimg/base:stable
+        auth:
+          # ensure you have first added these secrets
+          # visit app.circleci.com/settings/project/github/tayminni80/hello-world/environment-variables
+          username: $DOCKER_HUB_USER
+          password: $DOCKER_HUB_PASSWORD
+jobs:
+  my-job-name:
+
+    executor: my-custom-executor
+    steps:
+      - checkout
+      - run: |
+          # echo Hello, World!
+
+workflows:
+  my-custom-workflow:
+    jobs:
+      - my-job-name place with your preferred image
       - image: cimg/base:stable
     steps:
       - python/dist
@@ -16,7 +38,29 @@ workflows:
       - example-jobjobs:
   example-job:
     docker:
-      # replace with your preferred image
+      # reversion: 2.1
+executors:
+  my-custom-executor:
+    docker:
+      - image: cimg/base:stable
+        auth:
+          # ensure you have first added these secrets
+          # visit app.circleci.com/settings/project/github/tayminni80/hello-world/environment-variables
+          username: $DOCKER_HUB_USER
+          password: $DOCKER_HUB_PASSWORD
+jobs:
+  my-job-name:
+
+    executor: my-custom-executor
+    steps:
+      - checkout
+      - run: |
+          # echo Hello, World!
+
+workflows:
+  my-custom-workflow:
+    jobs:
+      - my-job-name place with your preferred image
       - image: cimg/base:stable
     steps:
       - python/dist
